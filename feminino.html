@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda Feminina - Sua Loja de Roupas</title>
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo" aria-label="Página Inicial da Sua Loja de Roupas">SUA LOGO</a>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="feminino.html" class="nav-link">Feminino</a></li>
+                    <li><a href="masculino.html" class="nav-link">Masculino</a></li>
+                    <li><a href="infantil.html" class="nav-link">Infantil</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button class="icon-button" aria-label="Buscar produtos">
+                    <img src="assets/icons/search.svg" alt="Ícone de busca">
+                </button>
+                <button class="icon-button" aria-label="Acessar conta ou fazer login">
+                    <img src="assets/icons/user.svg" alt="Ícone de usuário">
+                </button>
+                <button class="icon-button cart-icon" aria-label="Ver carrinho de compras">
+                    <img src="assets/icons/cart.svg" alt="Ícone de carrinho de compras">
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero-section">
+            <div class="container">
+                <h1>Moda Feminina</h1>
+                <p>Descubra nossa coleção exclusiva para mulheres com estilo e elegância.</p>
+            </div>
+        </section>
+
+        <section class="category-products-section container">
+            <h2>Nossos Produtos Femininos</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <a href="produto.html" aria-label="Ver detalhes do produto: Vestido de Verão Estampado">
+                        <img src="assets/images/feminino_vestido.jpg" alt="Vestido de verão estampado com flores">
+                    </a>
+                    <h3>Vestido de Verão Estampado</h3>
+                    <p class="product-price">R$ 199,90</p>
+                    <button class="button add-to-cart-btn" data-product-id="5" aria-label="Adicionar Vestido de Verão Estampado ao carrinho">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-card">
+                    <a href="produto.html" aria-label="Ver detalhes do produto: Blusa de Seda Delicada">
+                        <img src="assets/images/feminino_blusa.jpg" alt="Blusa de seda branca com caimento leve">
+                    </a>
+                    <h3>Blusa de Seda Delicada</h3>
+                    <p class="product-price">R$ 149,90</p>
+                    <button class="button add-to-cart-btn" data-product-id="6" aria-label="Adicionar Blusa de Seda Delicada ao carrinho">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-card">
+                    <a href="produto.html" aria-label="Ver detalhes do produto: Saia Midi Plissada">
+                        <img src="assets/images/feminino_saia.jpg" alt="Saia midi plissada em cor vibrante">
+                    </a>
+                    <h3>Saia Midi Plissada</h3>
+                    <p class="product-price">R$ 179,90</p>
+                    <button class="button add-to-cart-btn" data-product-id="7" aria-label="Adicionar Saia Midi Plissada ao carrinho">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-card">
+                    <a href="produto.html" aria-label="Ver detalhes do produto: Macacão Elegante">
+                        <img src="assets/images/feminino_macacao.jpg" alt="Macacão elegante preto com detalhes sutis">
+                    </a>
+                    <h3>Macacão Elegante</h3>
+                    <p class="product-price">R$ 259,90</p>
+                    <button class="button add-to-cart-btn" data-product-id="8" aria-label="Adicionar Macacão Elegante ao carrinho">Adicionar ao Carrinho</button>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="feminino.html">Feminino</a></li>
+                    <li><a href="masculino.html">Masculino</a></li>
+                    <li><a href="infantil.html">Infantil</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Informações da Loja</h3>
+                <p>CNPJ: XX.XXX.XXX/XXXX-XX</p>
+                <p>Rua da Moda, 123, Centro</p>
+                <p>Cidade - UF, CEP XXXXX-XXX</p>
+                <p>E-mail: contato@sualoja.com</p>
+                <p>Telefone: (XX) XXXX-XXXX</p>
+            </div>
+            <div class="footer-column">
+                <h3>Siga-nos</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Nos siga no Instagram"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#" aria-label="Nos siga no Facebook"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Sua Loja de Roupas. Todos os direitos reservados.</p>
+                <p><a href="#">Termos e Condições</a> | <a href="#">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

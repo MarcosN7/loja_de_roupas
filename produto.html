@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome do Produto - Sua Loja de Roupas</title>
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Adicione estilos específicos para a página de produto aqui */
+        .product-detail-section {
+            padding: 80px 0;
+        }
+
+        .product-detail-container {
+            display: flex;
+            flex-wrap: wrap; /* Para responsividade */
+            gap: 40px;
+            align-items: flex-start; /* Alinha no topo */
+        }
+
+        .product-image-gallery {
+            flex: 1;
+            min-width: 350px; /* Largura mínima da imagem principal */
+            max-width: 600px;
+        }
+
+        .product-image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-info {
+            flex: 1.5; /* Ocupa mais espaço que a imagem */
+            min-width: 300px;
+        }
+
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .product-info .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .product-info p {
+            margin-bottom: 20px;
+            color: var(--light-text-color);
+        }
+
+        .product-options .form-group {
+            margin-bottom: 20px;
+        }
+
+        .product-options label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .product-options select,
+        .product-options input[type="number"] {
+            width: 100%;
+            max-width: 150px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+        }
+
+        .product-info .button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsividade para detalhes do produto */
+        @media (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-image-gallery,
+            .product-info {
+                min-width: unset;
+                width: 100%;
+                text-align: center;
+            }
+            .product-info h1 {
+                font-size: 2rem;
+            }
+            .product-info .price {
+                font-size: 1.8rem;
+            }
+            .product-options select,
+            .product-options input[type="number"] {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo" aria-label="Página Inicial da Sua Loja de Roupas">SUA LOGO</a>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="feminino.html" class="nav-link">Feminino</a></li>
+                    <li><a href="masculino.html" class="nav-link">Masculino</a></li>
+                    <li><a href="infantil.html" class="nav-link">Infantil</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button class="icon-button" aria-label="Buscar produtos">
+                    <img src="assets/icons/search.svg" alt="Ícone de busca">
+                </button>
+                <button class="icon-button" aria-label="Acessar conta ou fazer login">
+                    <img src="assets/icons/user.svg" alt="Ícone de usuário">
+                </button>
+                <button class="icon-button cart-icon" aria-label="Ver carrinho de compras">
+                    <img src="assets/icons/cart.svg" alt="Ícone de carrinho de compras">
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-detail-section container">
+            <div class="product-detail-container">
+                <div class="product-image-gallery">
+                    <img src="assets/images/product1_large.jpg" alt="Camisa Elegante - Vista frontal">
+                    </div>
+                <div class="product-info">
+                    <h1>Camisa Elegante</h1>
+                    <p class="price">R$ 129,90</p>
+                    <p>Esta camisa elegante é perfeita para qualquer ocasião, combinando conforto e sofisticação. Feita com tecido premium, oferece um caimento impecável e durabilidade.</p>
+                    <p><strong>Material:</strong> 100% Algodão Pima</p>
+                    <p><strong>Disponível nas cores:</strong> Branco, Azul Claro, Rosa Pastel</p>
+                    <p><strong>Cuidados:</strong> Lavar à máquina em água fria, não usar alvejante, secar em temperatura baixa.</p>
+
+                    <div class="product-options">
+                        <div class="form-group">
+                            <label for="size">Tamanho:</label>
+                            <select id="size" aria-label="Selecione o tamanho da camisa">
+                                <option value="P">P</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="GG">GG</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantidade:</label>
+                            <input type="number" id="quantity" value="1" min="1" aria-label="Selecione a quantidade de camisas">
+                        </div>
+                        <button class="button primary add-to-cart-btn" data-product-id="1" aria-label="Adicionar Camisa Elegante ao carrinho">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products-section container">
+            <h2>Produtos Relacionados</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <a href="produto.html" aria-label="Ver detalhes do produto: Calça Jeans Confortável">
+                        <img src="assets/images/product2.jpg" alt="Calça jeans azul claro">
+                    </a>
+                    <h3>Calça Jeans Confortável</h3>
+                    <p class="product-price">R$ 189,90</p>
+                    <button class="button add-to-cart-btn" data-product-id="2" aria-label="Adicionar Calça Jeans Confortável ao carrinho">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-card">
+                    <a href="produto.html" aria-label="Ver detalhes do produto: Vestido Floral Verão">
+                        <img src="assets/images/product3.jpg" alt="Vestido floral com fundo claro">
+                    </a>
+                    <h3>Vestido Floral Verão</h3>
+                    <p class="product-price">R$ 159,90</p>
+                    <button class="button add-to-cart-btn" data-product-id="3" aria-label="Adicionar Vestido Floral Verão ao carrinho">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="feminino.html">Feminino</a></li>
+                    <li><a href="masculino.html">Masculino</a></li>
+                    <li><a href="infantil.html">Infantil</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Informações da Loja</h3>
+                <p>CNPJ: XX.XXX.XXX/XXXX-XX</p>
+                <p>Rua da Moda, 123, Centro</p>
+                <p>Cidade - UF, CEP XXXXX-XXX</p>
+                <p>E-mail: contato@sualoja.com</p>
+                <p>Telefone: (XX) XXXX-XXXX</p>
+            </div>
+            <div class="footer-column">
+                <h3>Siga-nos</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Nos siga no Instagram"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#" aria-label="Nos siga no Facebook"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Sua Loja de Roupas. Todos os direitos reservados.</p>
+                <p><a href="#">Termos e Condições</a> | <a href="#">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
