@@ -289,7 +289,7 @@ a:hover {
     justify-content: center;
     text-align: center;
     color: var(--white-color);
-    background: url('../assets/images/hero-banner.jpg') no-repeat center center/cover;
+    background: url('https://cdn.example.com/images/hero-banner.jpg') no-repeat center center/cover;
     /* Certifique-se de ter uma imagem em assets/images/hero-banner.jpg */
 }
 
