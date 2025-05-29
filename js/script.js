@@ -43,7 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCountSpan = document.querySelector('.cart-count');
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
-    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Carrega itens do localStorage ou inicializa vazio
+    let cartItems = [];
+    let localStorageWarningShown = false;
+
+    try {
+        if (typeof Storage === "undefined") {
+            throw new Error("LocalStorage is not supported by this browser.");
+        }
+        cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    } catch (e) {
+        console.warn('Erro ao acessar o localStorage. O carrinho não será salvo entre sessões.', e);
+        if (!localStorageWarningShown) {
+            alert('Atenção: O seu navegador não permite salvar os itens do carrinho entre visitas (localStorage indisponível ou bloqueado). O carrinho funcionará apenas nesta sessão.');
+            localStorageWarningShown = true;
+        }
+        // Mesmo com erro, inicializa cartItems como array vazio para a sessão atual
+        cartItems = cartItems || [];
+    }
 
     // Função para atualizar o contador do carrinho
     const updateCartCount = () => {
@@ -58,11 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (event) => {
             const productId = event.target.dataset.productId; // Pega o ID do produto do atributo data-product-id
             const productCard = event.target.closest('.product-card'); // Encontra o card do produto pai
-            if (!productCard) return;
+            if (!productCard) {
+                console.error('Product card not found for this button.');
+                return;
+            }
 
-            const productName = productCard.querySelector('h3').textContent;
-            const productPriceText = productCard.querySelector('.product-price').textContent;
+            const productNameElement = productCard.querySelector('h3');
+            if (!productNameElement) {
+                console.error('Product name element not found in product card:', productCard);
+                return;
+            }
+            const productName = productNameElement.textContent;
+
+            const productPriceElement = productCard.querySelector('.product-price');
+            if (!productPriceElement) {
+                console.error('Product price element not found in product card:', productCard);
+                return;
+            }
+            const productPriceText = productPriceElement.textContent;
             const productPrice = parseFloat(productPriceText.replace('R$', '').replace(',', '.').trim()); // Converte para número
+
+            if (isNaN(productPrice)) {
+                console.error('Invalid product price format after parsing:', productPriceText);
+                return;
+            }
 
             const existingItem = cartItems.find(item => item.id === productId);
 
@@ -77,15 +112,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Salva no localStorage
+            try {
+                if (typeof Storage !== "undefined") {
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Salva no localStorage
+                } else {
+                     if (!localStorageWarningShown) {
+                        console.warn('LocalStorage is not available. Cart items will not be saved.');
+                        alert('Atenção: O seu navegador não permite salvar os itens do carrinho entre visitas (localStorage indisponível ou bloqueado). O carrinho funcionará apenas nesta sessão.');
+                        localStorageWarningShown = true;
+                    }
+                }
+            } catch (e) {
+                console.warn('Erro ao salvar itens no localStorage. O carrinho pode não persistir.', e);
+                if (!localStorageWarningShown) {
+                    alert('Atenção: Ocorreu um erro ao tentar salvar seu carrinho. Os itens podem não ser mantidos entre visitas.');
+                    localStorageWarningShown = true;
+                }
+            }
+
             updateCartCount(); // Atualiza o contador na interface
-            alert(`${productName} foi adicionado ao carrinho!`); // Feedback visual simples
+            // Feedback visual melhorado
+            const itemInCart = cartItems.find(item => item.id === productId); // Pega o item atualizado
+            const currentQuantity = itemInCart ? itemInCart.quantity : 0; // Garante que temos a quantidade
+            const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            alert(`${productName} foi adicionado ao carrinho! Quantidade: ${currentQuantity}. Total de itens no carrinho: ${totalCartItems}`);
         });
     });
 
     // Inicializa o contador do carrinho ao carregar a página
     updateCartCount();
 
+    // --- Event listener para o ícone do carrinho ---
+    const cartIconButton = document.querySelector('.cart-icon');
+    if (cartIconButton) {
+        cartIconButton.addEventListener('click', () => {
+            if (cartItems && cartItems.length > 0) {
+                console.log('Itens no carrinho:');
+                try {
+                    console.table(cartItems); // Tenta usar console.table se disponível
+                } catch (e) {
+                    console.log(cartItems); // Fallback para console.log
+                }
+            } else {
+                console.log('O carrinho está vazio.');
+                alert('O carrinho está vazio!');
+            }
+        });
+    }
 
     // --- 4. Simulação de Busca (Exemplo Simples) ---
     const searchButton = document.querySelector('.header-icons .icon-button[aria-label="Buscar produtos"]');
