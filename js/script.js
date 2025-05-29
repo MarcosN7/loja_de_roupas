@@ -143,20 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 
     // --- Event listener para o ícone do carrinho ---
-    const cartIconButton = document.querySelector('.cart-icon');
-    if (cartIconButton) {
-        cartIconButton.addEventListener('click', () => {
-            if (cartItems && cartItems.length > 0) {
-                console.log('Itens no carrinho:');
-                try {
-                    console.table(cartItems); // Tenta usar console.table se disponível
-                } catch (e) {
-                    console.log(cartItems); // Fallback para console.log
-                }
-            } else {
-                console.log('O carrinho está vazio.');
-                alert('O carrinho está vazio!');
-            }
+    // Seleciona o ícone do carrinho especificamente no header, se houver múltiplos .cart-icon
+    const headerCartIcon = document.querySelector('.main-header .cart-icon');
+    if (headerCartIcon) {
+        headerCartIcon.addEventListener('click', () => {
+            window.location.href = 'cart.html'; // Navega para a página do carrinho
         });
     }
 

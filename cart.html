@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Carrinho - Sua Loja de Roupas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Inline styles moved to css/styles.css -->
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo" aria-label="Página Inicial da Sua Loja de Roupas">SUA LOGO</a>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="feminino.html" class="nav-link">Feminino</a></li>
+                    <li><a href="masculino.html" class="nav-link">Masculino</a></li>
+                    <li><a href="infantil.html" class="nav-link">Infantil</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button class="icon-button" aria-label="Buscar produtos">
+                    <img src="https://cdn.example.com/icons/search.svg" alt="Ícone de busca">
+                </button>
+                <button class="icon-button" aria-label="Acessar conta ou fazer login">
+                    <img src="https://cdn.example.com/icons/user.svg" alt="Ícone de usuário">
+                </button>
+                <button class="icon-button cart-icon" aria-label="Ver carrinho de compras">
+                    <img src="https://cdn.example.com/icons/cart.svg" alt="Ícone de carrinho de compras">
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-container container">
+            <h2>Seu Carrinho de Compras</h2>
+            <div id="cart-items-container">
+                <!-- Cart items will be dynamically rendered here -->
+                <!-- Example of how one item might look (for structure reference):
+                <div class="cart-item">
+                    <span>Product Name</span>
+                    <span>R$ 100,00</span>
+                    <input type="number" value="1" min="1">
+                    <span>R$ 100,00</span>
+                    <button>Remover</button>
+                </div>
+                -->
+            </div>
+            <div id="empty-cart-placeholder" class="empty-cart-message" style="display: none;">
+                <p>Seu carrinho está vazio.</p>
+                <a href="index.html" class="button primary">Continuar Comprando</a>
+            </div>
+            <div class="cart-totals">
+                <h3>Total do Carrinho: <span id="cart-total-price">R$ 0,00</span></h3>
+            </div>
+            <div class="cart-actions">
+                <a href="index.html" class="button secondary">Continuar Comprando</a>
+                <button id="checkout-btn" class="button primary">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="feminino.html">Feminino</a></li>
+                    <li><a href="masculino.html">Masculino</a></li>
+                    <li><a href="infantil.html">Infantil</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Informações da Loja</h3>
+                <p>CNPJ: XX.XXX.XXX/XXXX-XX</p>
+                <p>Rua da Moda, 123, Centro</p>
+                <p>Cidade - UF, CEP XXXXX-XXX</p>
+                <p>E-mail: contato@sualoja.com</p>
+                <p>Telefone: (XX) XXXX-XXXX</p>
+            </div>
+            <div class="footer-column">
+                <h3>Siga-nos</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Nos siga no Instagram"><img src="https://cdn.example.com/icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#" aria-label="Nos siga no Facebook"><img src="https://cdn.example.com/icons/facebook.svg" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Sua Loja de Roupas. Todos os direitos reservados.</p>
+                <p><a href="#">Termos e Condições</a> | <a href="#">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script> <!-- Main script for header cart count, menu, etc. -->
+    <script src="js/cart-page.js"></script> <!-- Dedicated script for cart page logic -->
+</body>
+</html>

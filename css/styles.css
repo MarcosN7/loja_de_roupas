@@ -818,3 +818,205 @@ a:hover {
         font-size: 1rem;
     }
 }
+
+/* --- Cart Page Styles --- */
+.cart-container {
+    padding: 2rem 0; /* Consider using var() for spacing if available */
+    min-height: 60vh; /* Ensures footer is pushed down */
+    margin-top: 2rem; /* Added margin from header */
+    margin-bottom: 2rem; /* Added margin before footer */
+}
+
+.cart-container h2 {
+    text-align: center;
+    margin-bottom: 2rem; /* Explicitly set for cart section */
+}
+
+/* This container will hold the cart table, enabling scroll on small screens */
+#cart-items-container {
+    overflow-x: auto;
+    margin-bottom: 2rem; /* Separates table from totals */
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid var(--border-color); /* Use variable from :root */
+    padding: 0.75rem 1rem; /* Increased padding slightly for better readability */
+    text-align: left;
+    vertical-align: middle; /* Align content vertically */
+}
+
+.cart-table th {
+    background-color: var(--secondary-color); /* Use variable for light gray */
+    font-weight: 600; /* Make headers bolder */
+    color: var(--dark-color);
+}
+
+.cart-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Subtle alternating row color */
+}
+
+.cart-item-quantity input[type="number"] {
+    width: 60px; /* Slightly wider for easier interaction */
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px; /* Consistent with other inputs/buttons */
+    font-family: var(--font-family-base);
+    font-size: 0.95rem;
+}
+
+.cart-item-remove button {
+    background-color: #e74c3c; /* A slightly softer red */
+    color: var(--white-color);
+    border: none;
+    padding: 0.6rem 1rem; /* Adjusted padding */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item-remove button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+.cart-totals {
+    text-align: right;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+}
+
+.cart-totals h3 {
+    margin-bottom: 0; /* Removed default h3 margin, total is self-contained */
+    font-size: 1.5rem; /* Make total price prominent */
+    color: var(--dark-color);
+}
+
+.cart-totals #cart-total-price {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.cart-actions {
+    display: flex; /* Use flexbox for better alignment of buttons */
+    justify-content: flex-end; /* Align buttons to the right */
+    align-items: center;
+    gap: 1rem; /* Space between buttons */
+    margin-top: 1rem; /* Add some space above action buttons if totals are above */
+}
+
+/* Ensure cart action buttons use existing .button styles */
+.cart-actions .button {
+    margin-left: 0; /* Removed specific margin-left, using gap from flexbox now */
+}
+
+.empty-cart-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 3rem 1rem; /* Increased padding */
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.empty-cart-message p {
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+}
+
+/* Responsive adjustments for cart page elements */
+@media (max-width: 768px) {
+    .cart-table th, .cart-table td {
+        padding: 0.5rem; /* Reduce padding on smaller screens */
+        font-size: 0.9rem; /* Slightly smaller font for table content */
+    }
+
+    .cart-item-quantity input[type="number"] {
+        width: 45px;
+        padding: 0.4rem;
+    }
+
+    .cart-item-remove button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .cart-totals {
+        text-align: center; /* Center totals on smaller screens */
+    }
+    .cart-totals h3 {
+        font-size: 1.3rem;
+    }
+
+    .cart-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Make buttons full width of container */
+    }
+
+    .cart-actions .button {
+        width: 100%;
+        margin-bottom: 0.5rem; /* Add some space between stacked buttons */
+    }
+    .cart-actions .button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-container h2 {
+        font-size: 1.8rem; /* Further reduce heading size */
+    }
+    /* On very small screens, horizontal scroll for the table is handled by #cart-items-container */
+    /* The following commented-out styles are an alternative for transforming table to list,
+       but require JS to add data-label attributes to <td> elements.
+       For now, relying on horizontal scroll.
+    */
+    /*
+    .cart-table thead {
+        display: none;
+    }
+    .cart-table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 0.5rem;
+    }
+    .cart-table tbody td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px dotted var(--border-color);
+    }
+    .cart-table tbody td:last-child {
+        border-bottom: none;
+    }
+    .cart-table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.5rem;
+        width: 45%;
+        padding-right: 0.5rem;
+        text-align: left;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    */
+
+    .cart-item-quantity input[type="number"] {
+        width: 100%; /* Full width within its "cell" if using block display for td */
+    }
+    .cart-item-remove button {
+         width: 100%; /* Full width if using block display for td */
+    }
+}
